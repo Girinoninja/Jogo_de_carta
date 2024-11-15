@@ -71,7 +71,7 @@ def escolher_carta(jogador, carta_mesa):
     while True:
         print(f"\nMão de {jogador.nome}:")
         for idx, carta in enumerate(jogador.mao):
-            print(f"{idx}: {carta.cor} {carta.numero}")  # Mostra a carta como 'cor numero'
+            print(f"{idx}: {carta.cor} {carta.numero}") 
 
         try:
             escolha = int(input(f"\n{jogador.nome}, escolha a carta que deseja jogar (0 a {len(jogador.mao) - 1}) ou 100 para passar a vez: "))
@@ -83,10 +83,10 @@ def escolher_carta(jogador, carta_mesa):
                 carta_escolhida = jogador.mao.pop(escolha)
                 if carta_escolhida.cor == carta_mesa.cor or carta_escolhida.numero == carta_mesa.numero:
                     print(f"\n{jogador.nome} jogou: {carta_escolhida.cor} {carta_escolhida.numero}")
-                    return carta_escolhida  # Retorna a carta jogada
+                    return carta_escolhida  
                 else:
                     print("Escolha inválida. A carta precisa ter a mesma cor ou número da carta na mesa.")
-                    jogador.mao.append(carta_escolhida)  # Coloca a carta de volta na mão
+                    jogador.mao.append(carta_escolhida) 
             else:
                 print("Escolha inválida. Tente novamente.")
         
@@ -99,7 +99,7 @@ def pegar_ultima_carta(jogador, baralho, carta_mesa):
         ultima_carta = baralho.pop()  # Pega a última carta do baralho
         jogador.mao.append(ultima_carta)  # Adiciona à mão do jogador
         print(f'A carta retirada do baralho é: {ultima_carta}')
-        carta_escolhida = escolher_carta(jogador, carta_mesa)  # Escolhe uma carta da mão
+        carta_escolhida = escolher_carta(jogador, carta_mesa) 
         return carta_escolhida
     else:
         print("O baralho está vazio!")
@@ -113,7 +113,7 @@ def passar_vez(jogadores, indice_jogador):
     return indice_jogador
 
 def turno(jogador, baralho, carta_mesa, jogadores, indice_jogador):
-    mostrar_mao(jogador)  # Exibe as cartas do jogador
+    mostrar_mao(jogador) 
     print(f"\nÉ a vez de {jogador.nome}. Carta na mesa: {carta_mesa}")
     
     while True:
@@ -126,13 +126,13 @@ def turno(jogador, baralho, carta_mesa, jogadores, indice_jogador):
         if escolha == '1':
             carta_jogada = escolher_carta(jogador, carta_mesa)
             if carta_jogada:
-                return carta_jogada  # Atualiza a carta na mesa
+                return carta_jogada 
         elif escolha == '2':
             pegar_carta(baralho, jogador)
             print(f"{jogador.nome} pegou uma carta.")
         elif escolha == '3':
             print(f"{jogador.nome} passou a vez.")
-            return None  # Indica que a vez foi passada
+            return None 
         else:
             print("Escolha inválida. Tente novamente.")
 
@@ -187,7 +187,7 @@ while True:
 
     if not baralho:
         print("\nO baralho acabou! O jogo terminou em empate.")
-        pontos_partida(jogadores)  # Exibe os pontos ao final
+        pontos_partida(jogadores) 
         break
     indice_jogador = (indice_jogador + 1) % len(jogadores)
 
