@@ -19,7 +19,6 @@ número de cartas na mão (caso a partida termine por conta do baralho vazio).
 g. Caso a partida termine e ambos os jogadores ficarem com o mesmo número de cartas na mão,
 a partida é considerada um empate.
 
-Minha lógica:
 
 Começa com os jogadores escrevendo o nome e distribuindo as cartas (As cartas só serão mostradas no turno do jogador)
 
